@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sravankumar | Electronics Engineer building AI products</title>
+<meta name="description" content="Final-year ECE student in Tirupati with VLSI, embedded and MERN stack internships, building AI products. Open to internships and entry-level roles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F6FF;--ink:#12163A;--mute:#505678;--line:#D6DAF0;--card:#FFFFFF;
+  --green:#4338CA;--green-soft:#E7E9FF;--gold:#C2410C;--gold-bright:#FF7A59;
+  --mask:#0E1233;--mask-2:#241B70;--on-mask:#F2F4FF;--on-mask-mute:#B9C0EE;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0A0D24;--ink:#E8EBFF;--mute:#9DA5D6;--line:#262C5A;--card:#11163A;
+  --green:#8EA2FF;--green-soft:#1C2260;--gold:#FF9B7F;--mask:#070A1E;--mask-2:#141A52}}
+:root[data-theme="dark"]{
+  --bg:#0A0D24;--ink:#E8EBFF;--mute:#9DA5D6;--line:#262C5A;--card:#11163A;
+  --green:#8EA2FF;--green-soft:#1C2260;--gold:#FF9B7F;--mask:#070A1E;--mask-2:#141A52}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16.5px/1.65 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;margin:0;line-height:1.1}
+a{color:var(--green)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold-bright);outline-offset:3px}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px}
+.bar b{font:700 1.05rem "Bricolage Grotesque",sans-serif}
+.bar nav{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+.bar nav::-webkit-scrollbar{display:none}
+.bar nav a{color:var(--mute);text-decoration:none;font-size:.92rem;font-weight:500;white-space:nowrap}
+.bar nav a:hover{color:var(--ink)}
+
+/* hero: a green PCB solder-mask panel */
+.hero{background:radial-gradient(90% 120% at 88% 10%,var(--mask-2),var(--mask) 65%);color:var(--on-mask);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding-top:68px;padding-bottom:64px}
+.status{display:inline-flex;align-items:center;gap:10px;font-size:.92rem;font-weight:500;color:var(--on-mask);border:1px solid rgba(242,244,255,.28);padding:6px 14px;border-radius:99px}
+.status i{width:9px;height:9px;border-radius:50%;background:#46D39A;box-shadow:0 0 0 4px rgba(70,211,154,.2)}
+h1{font-size:clamp(2.7rem,8.4vw,5rem);font-weight:800;letter-spacing:-.03em;margin:22px 0 0}
+.role{font:600 clamp(1.1rem,2.6vw,1.45rem)/1.3 "Bricolage Grotesque",sans-serif;color:var(--gold-bright);margin:14px 0 0}
+.lede{max-width:48ch;color:var(--on-mask-mute);margin:18px 0 0;font-size:1.06rem}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:8px;font-weight:600;font-size:.98rem;text-decoration:none;border:1.5px solid transparent}
+.btn.primary{background:var(--gold-bright);color:#2A0D04}
+.btn.primary:hover{background:#FF9172}
+.btn.ghost{color:var(--on-mask);border-color:rgba(242,244,255,.4)}
+.btn.ghost:hover{background:rgba(242,244,255,.09)}
+.board{width:100%;height:auto;display:block;filter:drop-shadow(0 0 14px rgba(56,225,255,.28))}
+.board .t{fill:none;stroke:#38E1FF;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:route 1.8s ease-out forwards}
+.board .t:nth-of-type(2){animation-delay:.15s}.board .t:nth-of-type(3){animation-delay:.3s}.board .t:nth-of-type(4){animation-delay:.45s}.board .t:nth-of-type(5){animation-delay:.6s}.board .t:nth-of-type(6){animation-delay:.75s}
+.board .pad{fill:var(--gold-bright);opacity:0;animation:fade .4s ease-out 1.9s forwards}
+.board .die{fill:#161C5C;stroke:var(--gold-bright);stroke-width:2.4}
+.board .pin{stroke:var(--gold-bright);stroke-width:3;stroke-linecap:round}
+.board text{font:800 34px "Bricolage Grotesque",sans-serif;fill:var(--gold-bright);letter-spacing:-.02em}
+.board .sub{font:500 11px "IBM Plex Sans",sans-serif;fill:#B9C0EE;letter-spacing:.04em}
+@keyframes route{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.board .t{animation:none;stroke-dashoffset:0}.board .pad{animation:none;opacity:1}html{scroll-behavior:auto}}
+@media (max-width:760px){.hero .wrap{grid-template-columns:1fr;padding-top:44px;padding-bottom:40px}.board{max-width:420px}}
+
+/* quick facts */
+.facts{background:var(--card);border-bottom:1px solid var(--line)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.fact{padding:24px 18px;border-left:1px solid var(--line)}
+.fact:first-child{border-left:0;padding-left:0}
+.fact b{display:block;font:800 clamp(1.7rem,4vw,2.3rem)/1 "Bricolage Grotesque",sans-serif;color:var(--green);letter-spacing:-.02em}
+.fact span{display:block;margin-top:6px;color:var(--mute);font-size:.9rem;line-height:1.35}
+@media (max-width:640px){.facts .wrap{grid-template-columns:1fr 1fr}.fact:nth-child(3){border-left:0;padding-left:0}.fact:nth-child(n+3){border-top:1px solid var(--line)}.fact:first-child,.fact:nth-child(3){padding-left:0}}
+
+/* sections */
+section{padding:60px 0}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+h2{font-size:clamp(1.7rem,4vw,2.2rem);font-weight:700;letter-spacing:-.015em}
+.sec-head p{margin:0;color:var(--mute);max-width:44ch}
+
+/* about */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+.about p{margin:0 0 14px;max-width:58ch}
+.skillset{display:grid;gap:16px}
+.skillset h3{font-size:1rem;font-weight:700;margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{font-size:.88rem;padding:4px 12px;border-radius:99px;background:var(--green-soft);color:var(--ink);font-weight:500}
+@media (max-width:760px){.about{grid-template-columns:1fr;gap:28px}}
+
+/* experience timeline: vertical copper trace */
+.timeline{position:relative;display:grid;gap:22px;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:3px;background:var(--green);border-radius:3px;opacity:.55}
+.job{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px}
+.job::before{content:"";position:absolute;left:-34px;top:26px;width:19px;height:19px;border-radius:50%;background:var(--bg);border:4px solid var(--gold-bright)}
+.job .when{font-size:.9rem;font-weight:600;color:var(--gold)}
+.job h3{font-size:1.3rem;font-weight:700;margin-top:4px}
+.job .org{color:var(--mute);margin:4px 0 0;font-size:.98rem}
+.job ul.points{margin:14px 0 0;padding-left:20px}
+.job ul.points li{margin:4px 0}
+.job .chips{margin-top:16px}
+.job .chips li{background:transparent;border:1px solid var(--line)}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px}
+.proj{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--green);border-radius:12px;padding:22px;display:flex;flex-direction:column}
+.proj h3{font-size:1.2rem;font-weight:700}
+.proj p{color:var(--mute);margin:10px 0 0;flex:1}
+.proj .chips{margin-top:16px}
+.proj .chips li{background:transparent;border:1px solid var(--line)}
+.proj a.link{margin-top:16px;font-weight:600;text-decoration:none}
+.proj a.link:hover{text-decoration:underline}
+
+/* education */
+.edu{display:grid;gap:0}
+.edu article{display:grid;grid-template-columns:8rem 1fr;gap:6px 24px;padding:22px 0;border-top:1px solid var(--line)}
+.edu article:first-child{border-top:0;padding-top:0}
+.edu time{color:var(--mute);font-weight:500}
+.edu h3{font-size:1.18rem;font-weight:700}
+.edu p{margin:6px 0 0;color:var(--mute);max-width:64ch}
+.edu .hl{color:var(--ink);font-weight:600}
+@media (max-width:560px){.edu article{grid-template-columns:1fr}}
+.sub-h{font-size:1.3rem;font-weight:700;margin:48px 0 20px}
+
+/* contact band */
+.contact{background:var(--mask);color:var(--on-mask);padding:64px 0}
+.contact h2{color:var(--on-mask)}
+.contact p{color:var(--on-mask-mute);max-width:50ch;margin:14px 0 0}
+.contact .cta{margin-top:26px}
+.contact .meta{margin-top:26px;font-size:.95rem;color:var(--on-mask-mute)}
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.cert{background:var(--bg);border:1px solid var(--line);border-left:6px solid var(--gold-bright);border-radius:12px;padding:22px}
+.cert .when{font-size:.9rem;font-weight:600;color:var(--gold)}
+.cert h3{font-size:1.2rem;font-weight:700;margin-top:4px}
+.cert .org{margin:6px 0 0;font-weight:500;color:var(--green)}
+.cert p:last-child{margin:10px 0 0;color:var(--mute);font-size:.96rem}
+.quiz-lead{margin:-8px 0 18px;color:var(--mute)}
+.quizzes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 36px}
+.quizzes li{padding:12px 0;border-top:1px solid var(--line)}
+.quizzes b{display:block;font-weight:600;font-size:.98rem}
+.quizzes span{display:block;color:var(--mute);font-size:.9rem}
+.copyrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.copy{font:600 .9rem "IBM Plex Sans",sans-serif;color:var(--on-mask);background:rgba(242,244,255,.1);border:1px solid rgba(242,244,255,.28);border-radius:8px;min-height:40px;padding:0 16px;cursor:pointer}
+.copy:hover{background:rgba(242,244,255,.18)}
+footer{background:var(--mask);color:var(--on-mask-mute);padding:0 0 36px;font-size:.88rem;border-top:0}
+footer .wrap{border-top:1px solid rgba(242,244,255,.14);padding-top:22px}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <b>Sravankumar</b>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="status"><i></i>Open to internships and entry-level roles</span>
+      <h1>Sravankumar</h1>
+      <p class="role">Electronics engineer building AI products</p>
+      <p class="lede">Final-year B.Tech student in Electronics &amp; Communication Engineering in Tirupati. I train in VLSI and embedded systems, and I build and launch AI-powered software. I want to work where hardware thinking meets AI.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=bommanaboinasravankumar2@gmail.com&su=Opportunity%20for%20Sravankumar" target="_blank" rel="noopener">Email me</a>
+        <a class="btn ghost" href="https://wa.me/918639130758" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/bommanaboina-sravan-kumar-54119b36b">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/bommanaboinasravankumar2-boop">GitHub</a>
+      </div>
+    </div>
+    <svg class="board" viewBox="0 0 400 320" role="img" aria-label="Circuit traces routing into a chip marked SK">
+      <path class="t" pathLength="1" d="M0 70 H70 L100 100 H150"/>
+      <path class="t" pathLength="1" d="M0 130 H110 L130 130 H150"/>
+      <path class="t" pathLength="1" d="M0 190 H60 L90 160 H150"/>
+      <path class="t" pathLength="1" d="M0 250 H100 L130 220 H150"/>
+      <path class="t" pathLength="1" d="M250 100 H300 L330 60 H400"/>
+      <path class="t" pathLength="1" d="M250 190 H320 L350 240 H400"/>
+      <circle class="pad" cx="22" cy="70" r="6"/><circle class="pad" cx="22" cy="130" r="6"/>
+      <circle class="pad" cx="22" cy="190" r="6"/><circle class="pad" cx="22" cy="250" r="6"/>
+      <circle class="pad" cx="382" cy="60" r="6"/><circle class="pad" cx="382" cy="240" r="6"/>
+      <g>
+        <rect class="die" x="150" y="70" width="100" height="190" rx="10"/>
+        <g class="pin"><line class="pin" x1="138" y1="100" x2="150" y2="100"/><line class="pin" x1="138" y1="130" x2="150" y2="130"/><line class="pin" x1="138" y1="160" x2="150" y2="160"/><line class="pin" x1="138" y1="220" x2="150" y2="220"/>
+        <line class="pin" x1="250" y1="100" x2="262" y2="100"/><line class="pin" x1="250" y1="190" x2="262" y2="190"/></g>
+        <text x="200" y="176" text-anchor="middle">SK</text>
+        <text class="sub" x="200" y="200" text-anchor="middle">ECE + AI</text>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<div class="facts">
+  <div class="wrap">
+    <div class="fact"><b>8.19</b><span>CGPA after third year, B.Tech ECE</span></div>
+    <div class="fact"><b>2</b><span>Internships completed in 2026</span></div>
+    <div class="fact"><b>120 hrs</b><span>Full-stack MERN internship</span></div>
+    <div class="fact"><b>2027</b><span>Graduation, available for roles</span></div>
+  </div>
+</div>
+
+<main>
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2 style="margin-bottom:20px">About</h2>
+      <p>I study Electronics &amp; Communication Engineering at Annamacharya Institute of Technology and Sciences. My coursework covers VLSI design, digital signal processing, microcontrollers, PCB design and machine learning.</p>
+      <p>Outside class I build and launch AI-powered software, and I'm starting an AI automation consultancy for local businesses. I like understanding a system from the silicon up to the product on the screen.</p>
+    </div>
+    <div class="skillset">
+      <div><h3>Hardware</h3><ul class="chips"><li>VLSI design</li><li>Chip design</li><li>Embedded systems and IoT</li><li>PCB design</li><li>Microcontrollers</li><li>DSP</li></ul></div>
+      <div><h3>AI and software</h3><ul class="chips"><li>Python</li><li>Machine learning</li><li>Multi-agent systems</li><li>AI product building</li></ul></div>
+      <div><h3>Web</h3><ul class="chips"><li>MongoDB</li><li>Express</li><li>React</li><li>Node.js</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head"><h2>Experience</h2><p>Hands-on internships across chip design and full-stack development.</p></div>
+    <div class="timeline">
+      <article class="job" style="background:var(--bg)">
+        <span class="when">Apr to Jun 2026</span>
+        <h3>Advanced VLSI &amp; Chip Design Intern</h3>
+        <p class="org">SkillDzire, with the Andhra Pradesh State Council of Higher Education</p>
+        <ul class="chips"><li>VLSI</li><li>Chip design</li></ul>
+      </article>
+      <article class="job" style="background:var(--bg)">
+        <span class="when">2026, 2 months, 120 hours</span>
+        <h3>Full Stack Developer Intern (MERN Stack)</h3>
+        <p class="org">SmartBridge Educational Services, with the Andhra Pradesh State Council of Higher Education</p>
+        <ul class="chips"><li>MongoDB</li><li>Express</li><li>React</li><li>Node.js</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><h2>Projects</h2><p>Code and records you can check on GitHub.</p></div>
+    <div class="projects">
+      <article class="proj">
+        <h3>Certificates</h3>
+        <p>My internship and course certificates, kept in one public repository so they are easy to verify.</p>
+        <ul class="chips"><li>Internships</li><li>Courses</li></ul>
+        <a class="link" href="https://github.com/bommanaboinasravankumar2-boop/certificates" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="certifications" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head"><h2>Certifications</h2><p>Technical training in AI, quantum computing and embedded systems.</p></div>
+    <div class="certs">
+      <article class="cert">
+        <span class="when">Jul 2026</span>
+        <h3>AI Bootcamp</h3>
+        <p class="org">NxtWave Intensive</p>
+        <p>Completed the bootcamp on practical applications of Artificial Intelligence in modern software development.</p>
+      </article>
+      <article class="cert">
+        <span class="when">Feb 2026</span>
+        <h3>Quantum Fundamentals Program</h3>
+        <p class="org">Amaravati Quantum Valley, Qubitech and WISER, with APSCHE</p>
+        <p>4-week program, equivalent to 1 academic credit. Certificate ID 97AD484B.</p>
+      </article>
+      <article class="cert">
+        <span class="when">Feb 2026</span>
+        <h3>Embedded Systems and IoT</h3>
+        <p class="org">NSIC Technical Services Centre, Hyderabad</p>
+        <p>30-hour training program from a Government of India enterprise.</p>
+      </article>
+    </div>
+
+    <h3 class="sub-h">Government quizzes and competitions</h3>
+    <p class="quiz-lead">Certificates of participation from national quizzes on the MyGov platform.</p>
+    <ul class="quizzes">
+      <li><b>Unani Medicine Quiz</b><span>CCRUM, Ministry of AYUSH</span></li>
+      <li><b>Ayurveda Innovation for Global Health Quiz</b><span>All India Institute of Ayurveda</span></li>
+      <li><b>Bharatiya Gyan Quiz on Knowing Bharat</b><span>IKS Division, Ministry of Education</span></li>
+      <li><b>International Day of Sign Languages Quiz</b><span>NCERT, Ministry of Education (2023)</span></li>
+      <li><b>National Unity Day Quiz</b><span>MyGov</span></li>
+      <li><b>Birsa Munda Janjatiya Nayak Ji Quiz</b><span>Ministry of Tribal Affairs</span></li>
+      <li><b>GLOF Awareness Quiz: Be Alert Be Prepared</b><span>National Disaster Management Authority</span></li>
+      <li><b>Quiz on Policing and Law Enforcement</b><span>Goa Police</span></li>
+      <li><b>Consumer Awareness Quiz</b><span>Department of Consumer Affairs</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head"><h2>Education</h2></div>
+    <div class="edu">
+      <article>
+        <time>2023 to 2027</time>
+        <div><h3>B.Tech, Electronics &amp; Communication Engineering</h3>
+        <p>Annamacharya Institute of Technology and Sciences, Tirupati. <span class="hl">CGPA 8.19</span> after the third year.</p>
+        <p>Coursework: VLSI Design, Machine Learning and DSP, Digital Signal Processing, Microprocessors and Microcontrollers, PCB Design and Prototype Development, Python Programming.</p></div>
+      </article>
+      <article>
+        <time>2023</time>
+        <div><h3>Intermediate, Electronics Engineering Technician (vocational)</h3>
+        <p>Board of Intermediate Education, Andhra Pradesh. <span class="hl">902 / 1000</span>, A grade.</p></div>
+      </article>
+      <article>
+        <time>2021</time>
+        <div><h3>Secondary School Certificate</h3>
+        <p>ZP High School, Thondur. <span class="hl">588 / 600</span>, first division.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>I'm looking for an internship or entry-level role in chip design, embedded systems or AI product work. Send me a note and I'll reply quickly.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=bommanaboinasravankumar2@gmail.com&su=Opportunity%20for%20Sravankumar" target="_blank" rel="noopener">bommanaboinasravankumar2@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/bommanaboina-sravan-kumar-54119b36b">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/bommanaboinasravankumar2-boop">GitHub</a>
+    </div>
+    <div class="copyrow">
+      <button type="button" class="copy" data-copy="bommanaboinasravankumar2@gmail.com">Copy email</button>
+      <button type="button" class="copy" data-copy="+918639130758">Copy phone number</button>
+    </div>
+    <p class="meta">Phone: <a href="https://wa.me/918639130758" target="_blank" rel="noopener" style="color:var(--gold-bright)">+91 86391 30758 (WhatsApp)</a><br>Based in Tirupati, Andhra Pradesh, India</p>
+  </div>
+</section>
+<footer><div class="wrap">Sravankumar, Tirupati, India</div></footer>
+
+<script>
+(function(){
+  function fallback(t){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(a)}
+  document.querySelectorAll('.copy').forEach(function(b){
+    var label=b.textContent;
+    b.addEventListener('click',function(){
+      var t=b.getAttribute('data-copy');
+      function done(){b.textContent='Copied!';setTimeout(function(){b.textContent=label},1600)}
+      try{navigator.clipboard.writeText(t).then(done,function(){fallback(t);done()})}catch(e){fallback(t);done()}
+    });
+  });
+})();
+</script>
+</body>
+</html>
